@@ -5,9 +5,11 @@
 
 using namespace std;
 
-int fx=2450,fy=1250,sx=50,sy=50,w=15,c;
-int mx=(fx)/w;
-int my=(fy)/w;
+DWORD fx=GetSystemMetrics(SM_CXSCREEN);
+DWORD fy=GetSystemMetrics(SM_CYSCREEN);
+int sx=50,sy=50,w=15,c;
+int mx=(fx-100)/w;
+int my=(fy-150)/w;
 
 void draw_matrix(int x,int y,int w){
 	setcolor(BLUE);
@@ -18,7 +20,7 @@ void draw_matrix(int x,int y,int w){
 }
 
 main(){
-	initwindow(fx+100,fy+100);
+	initwindow(fx,fy);
 	draw_matrix(mx,my,w);
 	bool mat[mx][my]={0};
 	int dir=0,x=mx/2,y=my/2;
